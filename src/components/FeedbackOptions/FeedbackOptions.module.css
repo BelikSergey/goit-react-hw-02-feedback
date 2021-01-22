@@ -6,10 +6,16 @@
     cursor: pointer;
     background-color: #fff;
 }
-.button:last-of-type {
+.item:last-of-type {
     margin-right: 0px;
 }
 
 .button:active {
     background-color: aqua;
+}
+.buttomList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 10px;
 }

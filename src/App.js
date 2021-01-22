@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import FeedbackOptions from './components/FeedbackOptions';
 import Section from './components/Section';
 import Statistics from './components/Statistics';
+// import style from './App.module.css';
 
-const MockButtonFeadback = ['Good', 'Neutral', 'Bad'];
+// const MockButtonFeadback = ['Good', 'Neutral', 'Bad'];
 
 class App extends Component {
     static defaultProps = {
@@ -32,15 +33,21 @@ class App extends Component {
             (good * 100) / countTotalFeedback,
         );
         return (
-            <div className="">
+            <div>
                 <Section title="Please leave feedback">
-                    {MockButtonFeadback.map(but => (
+                    <FeedbackOptions
+                        // key={but}
+                        onLeaveFeedback={this.counterFeadbacks}
+                    />
+                    {/* <ul className={style.buttomList}>
+                   {MockButtonFeadback.map(but => (
                         <FeedbackOptions
                             buttonName={but}
                             key={but}
                             onLeaveFeedback={this.counterFeadbacks}
                         />
                     ))}
+                   </ul> */}
                 </Section>
                 <Section title="Statistics">
                     {countTotalFeedback ? (
