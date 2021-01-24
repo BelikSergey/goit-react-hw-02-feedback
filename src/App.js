@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FeedbackOptions from './components/FeedbackOptions';
 import Section from './components/Section';
 import Statistics from './components/Statistics';
-import style from './App.module.css';
 
 const MockButtonFeadback = ['Good', 'Neutral', 'Bad'];
 
@@ -27,6 +26,7 @@ class App extends Component {
 
     //   ButtonFeadbackId = shortid.generate();
     render() {
+        // console.log(MockButtonFeadback);
         const { good, neutral, bad } = this.state;
         const countTotalFeedback = good + neutral + bad;
         const countPositiveFeedbackPercentage = Math.round(
@@ -39,15 +39,11 @@ class App extends Component {
                         // key={but}
                         onLeaveFeedback={this.counterFeadbacks}
                     /> */}
-                    <ul className={style.buttomList}>
-                        {MockButtonFeadback.map(but => (
-                            <FeedbackOptions
-                                buttonName={but}
-                                key={but}
-                                onLeaveFeedback={this.counterFeadbacks}
-                            />
-                        ))}
-                    </ul>
+
+                    <FeedbackOptions
+                        buttonNames={MockButtonFeadback}
+                        onLeaveFeedback={this.counterFeadbacks}
+                    />
                 </Section>
                 <Section title="Statistics">
                     {countTotalFeedback ? (
